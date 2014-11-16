@@ -1,19 +1,28 @@
 package com.company;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FilenameFilter;
-import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
+    private static ExecutorService pool;
+    private static String sermoning;
     public static void main(String[] args) {
-	// write your code here
-        LinkedList<File> files = new LinkedList<File>();
-        for (File path: File.listRoots()) {
-            files.addAll(getFileLists(path));
+        if (args.length == 0) {
+            System.exit(0);
+        } else {
+            sermoning = args[0];
         }
-        for (File file : files) System.out.println(file);
+        pool = Executors.newFixedThreadPool(3);
+        for (File path: File.listRoots()) {
+            getFileLists(path);
+        }
+        pool.shutdown();
     }
 
     static FilenameFilter fileFilter = new FilenameFilter() {
@@ -35,25 +44,30 @@ public class Main {
         }
     };
 
-    private static LinkedList<File> getFileLists(File path){
-        LinkedList<File> files = new LinkedList<File>();
-        files.clear();
+    private static void getFileLists(File path){
         if (path.isDirectory()) {
             try {
                 File[] list = path.listFiles(fileFilter);
-                if (list != null){
-                    for (File file : list) {
-                        files.addAll(getFileLists(file));
-                    }
-                }
+                if (list != null)
+                    for (File file : list)
+                        getFileLists(file);
             } catch (Exception e){
                 e.printStackTrace();
-                //return files;
             }
         }
         else {
-            files.add(path.getAbsoluteFile());
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+                StringBuffer stringBuffer = new StringBuffer();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuffer.append(line).append("\n");
+                }
+                StringSearcher task = new StringSearcher(sermoning, path.getAbsolutePath(), stringBuffer);
+                pool.submit(task);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
-        return files;
     }
 }
