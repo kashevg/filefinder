@@ -1,4 +1,4 @@
-package com.company;
+package filefinder;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 /**
  * Created by eugene on 17.11.2014.
  */
-class FileSearcher {
+public class FileSearcher {
     private ExecutorService pool;
     private String stringToFind;
     private FilenameFilter fileFilter;

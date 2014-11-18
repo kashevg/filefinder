@@ -1,4 +1,4 @@
-package com.company;
+package filefinder;
 
 /**
  * Created by eugene on 16.11.2014.

@@ -1,4 +1,4 @@
-package com.company;
+package filefinder;
 
 import java.util.logging.Logger;
 
