@@ -5,22 +5,24 @@ package com.company;
  */
 public class StringSearcher implements Runnable {
 
-    String sermoning, filename;
+    String strToFind, fileName;
     StringBuffer stringBuffer;
-    public StringSearcher(String sermoning, String filename, StringBuffer stringBuffer) {
-        this.sermoning = sermoning;
-        this.filename = filename;
+    WriteResult writeResult;
+    public StringSearcher(String strToFind, String fileName, StringBuffer stringBuffer, WriteResult writeResult) {
+        this.strToFind = strToFind;
+        this.fileName = fileName;
         this.stringBuffer = stringBuffer;
+        this.writeResult = writeResult;
     }
 
     public void run() {
         int i = 0;
         do
         {
-            i = stringBuffer.indexOf(sermoning, i);
+            i = stringBuffer.indexOf(strToFind, i);
             if (i != -1) {
-                System.out.println("File: " + filename + " at pos " + i);
-                i = i + sermoning.length();
+                writeResult.write(fileName, i);
+                i = i + strToFind.length();
             }
         } while (i>0);
     }

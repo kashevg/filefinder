@@ -1,14 +1,17 @@
 package com.company;
 
+import java.util.logging.Logger;
 
 public class Main {
 
     public static void main(String[] args) {
+        Logger LOG = Logger.getLogger(Main.class.getName());
         if (args.length == 0) {
+            LOG.warning("No parameter");
             System.exit(0);
         } else {
-            FileSearcher fsearcher = new FileSearcher(args[0]);
-            fsearcher.run();
+            FileSearcher fileSearcher = new FileSearcher(args[0], new WriteToConsole());
+            fileSearcher.run();
         }
     }
 }
