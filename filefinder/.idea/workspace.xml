@@ -6,12 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06e800ce-aa21-4e43-91b1-9024b0e62623" name="Default" comment="add class to write results.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/filefinder/Config.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/config.ini" />
+    <list default="true" id="06e800ce-aa21-4e43-91b1-9024b0e62623" name="Default" comment="add config">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ffinder-service/ffinder-service.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/filefinder/FileSearcher.java" afterPath="$PROJECT_DIR$/src/filefinder/FileSearcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/filefinder/Main.java" afterPath="$PROJECT_DIR$/src/filefinder/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="filefinder.iws" />
@@ -68,15 +64,14 @@
       <file leaf-file-name="Config.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/filefinder/Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9162561" vertical-offset="325" max-vertical-offset="952">
-              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.243309" vertical-offset="325" max-vertical-offset="952">
+              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#463#464#0" expanded="true" />
                 <element signature="e#510#511#0" expanded="true" />
                 <element signature="e#567#568#0" expanded="true" />
                 <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
                 <element signature="e#705#706#0" expanded="true" />
               </folding>
             </state>
@@ -466,8 +461,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33492064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33435583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33435583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -507,7 +502,8 @@
     <MESSAGE value="logic from main class to FileFinder class." />
     <MESSAGE value="add logger. some refactoring&#10;" />
     <MESSAGE value="add class to write results." />
-    <option name="LAST_COMMIT_MESSAGE" value="add class to write results." />
+    <MESSAGE value="add config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add config" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -969,15 +965,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/filefinder/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9162561" vertical-offset="325" max-vertical-offset="952">
-          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.243309" vertical-offset="325" max-vertical-offset="952">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#463#464#0" expanded="true" />
             <element signature="e#510#511#0" expanded="true" />
             <element signature="e#567#568#0" expanded="true" />
             <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
             <element signature="e#705#706#0" expanded="true" />
           </folding>
         </state>
