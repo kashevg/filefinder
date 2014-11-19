@@ -33,10 +33,11 @@ public class FileSearcher {
                     if (posDot < 0)
                         return false;
                     name = name.substring(posDot);
-                    switch(name) {
-                        case ".txt": return true;
-                        default: return false;
+                    for(String ext : Config.getInstance().getSTRING_ARRAY_FILE_EXTENSIONS()) {
+                        if (name.equals(ext))
+                            return true;
                     }
+                    return false;
                 } catch (Exception e) {
                     e.printStackTrace();
                     return false;
@@ -46,7 +47,7 @@ public class FileSearcher {
     }
 
     public  void run() {
-        pool = Executors.newFixedThreadPool(3);
+        pool = Executors.newFixedThreadPool(Config.getInstance().getINT_THREAD_POOL_SIZE());
         for (File path: File.listRoots()) {
             getFileLists(path);
         }
@@ -54,6 +55,10 @@ public class FileSearcher {
     }
 
     private void getFileLists(File path){
+        for (String exceptFile : Config.getInstance().getSTRING_ARRAY_FILE_EXCEPT() ) {
+            if (path.getName().equals(exceptFile) )
+                return;
+        }
         if (path.isDirectory()) {
             try {
                 File[] list = path.listFiles(fileFilter);
