@@ -10,7 +10,6 @@ public class Main {
             LOG.warning("No parameter");
             System.exit(0);
         } else {
-            Config.getInstance().readcfg();
             FileSearcher fileSearcher = new FileSearcher(args[0], new WriteToConsole());
             fileSearcher.run();
         }

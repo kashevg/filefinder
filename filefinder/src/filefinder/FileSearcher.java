@@ -47,6 +47,7 @@ public class FileSearcher {
     }
 
     public  void run() {
+        Config.getInstance().readcfg();
         pool = Executors.newFixedThreadPool(Config.getInstance().getINT_THREAD_POOL_SIZE());
         for (File path: File.listRoots()) {
             getFileLists(path);
@@ -56,7 +57,7 @@ public class FileSearcher {
 
     private void getFileLists(File path){
         for (String exceptFile : Config.getInstance().getSTRING_ARRAY_FILE_EXCEPT() ) {
-            if (path.getName().equals(exceptFile) )
+            if (path.getAbsolutePath().equals(exceptFile) )
                 return;
         }
         if (path.isDirectory()) {
