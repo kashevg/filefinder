@@ -33,7 +33,7 @@ public class FileSearcher {
                     if (posDot < 0)
                         return false;
                     name = name.substring(posDot);
-                    for(String ext : Config.getInstance().getSTRING_ARRAY_FILE_EXTENSIONS()) {
+                    for(String ext : Config.getInstance().getArrFileExtensions()) {
                         if (name.equals(ext))
                             return true;
                     }
@@ -48,15 +48,16 @@ public class FileSearcher {
 
     public  void run() {
         Config.getInstance().readcfg();
-        pool = Executors.newFixedThreadPool(Config.getInstance().getINT_THREAD_POOL_SIZE());
+        pool = Executors.newFixedThreadPool(Config.getInstance().getThreadPoolSize());
         for (File path: File.listRoots()) {
             getFileLists(path);
         }
+
         pool.shutdown();
     }
 
     private void getFileLists(File path){
-        for (String exceptFile : Config.getInstance().getSTRING_ARRAY_FILE_EXCEPT() ) {
+        for (String exceptFile : Config.getInstance().getArrFileExcept() ) {
             if (path.getAbsolutePath().equals(exceptFile) )
                 return;
         }
@@ -78,7 +79,6 @@ public class FileSearcher {
                 while ((line = bufferedReader.readLine()) != null) {
                     stringBuffer.append(line).append("\n");
                 }
-
                 StringSearcher task = new StringSearcher(stringToFind, path.getAbsolutePath(), stringBuffer, writeResult);
                 pool.submit(task);
             } catch (Exception e) {

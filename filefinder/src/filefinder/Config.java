@@ -9,22 +9,22 @@ import java.util.Properties;
  */
 public class Config {
 
-    private int INT_THREAD_POOL_SIZE = 3;
-    private String STRING_FILE_EXTENSIONS = ".txt";
-    private String[] STRING_ARRAY_FILE_EXTENSIONS;
-    private String STRING_FILE_EXCEPT = "/proc";
-    private String[] STRING_ARRAY_FILE_EXCEPT;
+    private int threadPoolSize = 3;
+    private String fileExtensions = ".txt";
+    private String[] arrFileExtensions;
+    private String fileExcept = "/proc";
+    private String[] arrFileExcept;
 
-    public String[] getSTRING_ARRAY_FILE_EXCEPT() {
-        return STRING_ARRAY_FILE_EXCEPT;
+    public String[] getArrFileExcept() {
+        return arrFileExcept;
     }
 
-    public String[] getSTRING_ARRAY_FILE_EXTENSIONS() {
-        return STRING_ARRAY_FILE_EXTENSIONS;
+    public String[] getArrFileExtensions() {
+        return arrFileExtensions;
     }
 
-    public int getINT_THREAD_POOL_SIZE() {
-        return INT_THREAD_POOL_SIZE;
+    public int getThreadPoolSize() {
+        return threadPoolSize;
     }
 
     private static Config ourInstance = new Config();
@@ -36,14 +36,14 @@ public class Config {
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream(new File("./config/config.ini")));
-            INT_THREAD_POOL_SIZE = Integer.valueOf(prop.getProperty("INT_THREAD_POOL_SIZE", "3"));
-            STRING_FILE_EXCEPT = prop.getProperty("STRING_FILE_EXCEPT", "/proc");
-            STRING_FILE_EXTENSIONS = prop.getProperty("STRING_FILE_EXTENSIONS", ".txt");
+            threadPoolSize = Integer.valueOf(prop.getProperty("INT_THREAD_POOL_SIZE", "3"));
+            fileExcept = prop.getProperty("STRING_FILE_EXCEPT", "/proc");
+            fileExtensions = prop.getProperty("STRING_FILE_EXTENSIONS", ".txt");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            STRING_ARRAY_FILE_EXCEPT = STRING_FILE_EXCEPT.split(";");
-            STRING_ARRAY_FILE_EXTENSIONS = STRING_FILE_EXTENSIONS.split(";");
+            arrFileExcept = fileExcept.split(";");
+            arrFileExtensions = fileExtensions.split(";");
         }
     }
 
