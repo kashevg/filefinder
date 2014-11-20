@@ -12,7 +12,7 @@ public class Config {
     private int threadPoolSize = 3;
     private String fileExtensions = ".txt";
     private String[] arrFileExtensions;
-    private String fileExcept = "/proc";
+    private String fileExcept = "/proc;/sys";
     private String[] arrFileExcept;
 
     public String[] getArrFileExcept() {

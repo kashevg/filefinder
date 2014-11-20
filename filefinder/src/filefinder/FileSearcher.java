@@ -17,6 +17,10 @@ public class FileSearcher {
     private FilenameFilter fileFilter;
     private WriteResult writeResult;
     private Logger LOG;
+
+    private Config getConfig() {
+        return Config.getInstance();
+    }
     public FileSearcher(String strTextToFind, WriteResult writeResult){
         this.stringToFind = strTextToFind;
         this.writeResult = writeResult;
@@ -33,7 +37,7 @@ public class FileSearcher {
                     if (posDot < 0)
                         return false;
                     name = name.substring(posDot);
-                    for(String ext : Config.getInstance().getArrFileExtensions()) {
+                    for(String ext : getConfig().getArrFileExtensions()) {
                         if (name.equals(ext))
                             return true;
                     }
@@ -47,8 +51,8 @@ public class FileSearcher {
     }
 
     public  void run() {
-        Config.getInstance().readcfg();
-        pool = Executors.newFixedThreadPool(Config.getInstance().getThreadPoolSize());
+        getConfig().readcfg();
+        pool = Executors.newFixedThreadPool(getConfig().getThreadPoolSize());
         for (File path: File.listRoots()) {
             getFileLists(path);
         }
@@ -57,7 +61,7 @@ public class FileSearcher {
     }
 
     private void getFileLists(File path){
-        for (String exceptFile : Config.getInstance().getArrFileExcept() ) {
+        for (String exceptFile : getConfig().getArrFileExcept() ) {
             if (path.getAbsolutePath().equals(exceptFile) )
                 return;
         }
