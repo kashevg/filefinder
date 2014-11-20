@@ -32,7 +32,7 @@ public class Config {
     public static Config getInstance() {
         return ourInstance;
     }
-    public void readcfg() {
+    public void readCfg() {
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream(new File("./config/config.ini")));

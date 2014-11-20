@@ -51,7 +51,7 @@ public class FileSearcher {
     }
 
     public  void run() {
-        getConfig().readcfg();
+        getConfig().readCfg();
         pool = Executors.newFixedThreadPool(getConfig().getThreadPoolSize());
         for (File path: File.listRoots()) {
             getFileLists(path);
